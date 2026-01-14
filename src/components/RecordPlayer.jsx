@@ -1,48 +1,15 @@
-import { useState, useRef, useEffect } from 'react'
+import { useAudio } from '../context/AudioContext'
 import './RecordPlayer.css'
 
 function RecordPlayer() {
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [volume, setVolume] = useState(0.5)
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume
-    }
-  }, [volume])
-
-  const handlePlay = () => {
-    if (audioRef.current) {
-      audioRef.current.play()
-      setIsPlaying(true)
-    }
-  }
-
-  const handlePause = () => {
-    if (audioRef.current) {
-      audioRef.current.pause()
-      setIsPlaying(false)
-    }
-  }
-
-  const handleStop = () => {
-    if (audioRef.current) {
-      audioRef.current.pause()
-      audioRef.current.currentTime = 0
-      setIsPlaying(false)
-    }
-  }
+  const { isPlaying, volume, play, pause, stop, nextTrack, prevTrack, updateVolume } = useAudio()
 
   const handleVolumeChange = (e) => {
-    const newVolume = parseFloat(e.target.value)
-    setVolume(newVolume)
+    updateVolume(parseFloat(e.target.value))
   }
 
   return (
     <div className="record-player">
-      <audio ref={audioRef} src="/assets/audio/sheep-tune-1.mp3" loop />
-      
       <div className="player-container">
         <div className="player-top">
           <div className="turntable">
@@ -64,20 +31,30 @@ function RecordPlayer() {
           </div>
 
           <div className="control-buttons">
+            <button onClick={prevTrack} className="control-btn skip-btn" aria-label="Previous Track">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+              </svg>
+            </button>
             {!isPlaying ? (
-              <button onClick={handlePlay} className="control-btn play-btn" aria-label="Play">
+              <button onClick={play} className="control-btn play-btn" aria-label="Play">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </button>
             ) : (
-              <button onClick={handlePause} className="control-btn pause-btn" aria-label="Pause">
+              <button onClick={pause} className="control-btn pause-btn" aria-label="Pause">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                 </svg>
               </button>
             )}
-            <button onClick={handleStop} className="control-btn stop-btn" aria-label="Stop">
+            <button onClick={nextTrack} className="control-btn skip-btn" aria-label="Next Track">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+              </svg>
+            </button>
+            <button onClick={stop} className="control-btn stop-btn" aria-label="Stop">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6 6h12v12H6z"/>
               </svg>
