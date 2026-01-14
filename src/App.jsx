@@ -17,7 +17,7 @@ function App() {
           <h1>Coming Soon</h1>
           <div className="subtitle">
             <span>From the world of Catermelons</span>
-            <img src="/public/catermelon-head.png" alt="Catermelon" className="catermelon-icon" />
+            <img src="./catermelon-head.png" alt="Catermelon" className="catermelon-icon" />
           </div>
           
           <img 
