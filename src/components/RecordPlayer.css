@@ -272,7 +272,7 @@
 /* Responsive */
 @media (max-width: 360px) {
   .player-container {
-    width: 280px;
+    width: 90vw;
     padding: 16px;
   }
   

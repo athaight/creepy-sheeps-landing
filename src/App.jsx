@@ -9,14 +9,20 @@ function App() {
   return (
     <div className="app">
       <main className="main-content">
-        <h1>Coming Soon from the world of Catermelons</h1>
-        
-        <img 
-          src="/sheep-neon.png" 
-          alt="Neon Sheep Sign" 
-          className="hero-image"
-        />
-        
+  
+  
+  <img 
+    src="/sheep-neon.png" 
+    alt="Neon Sheep Sign" 
+    className="hero-image"
+  />
+
+  <h1>Coming Soon</h1>
+  <div className="subtitle">
+    <span>From the world of Catermelons </span>
+    <img src="public/catermelon-head.png" alt="Catermelon" className="catermelon-icon" />
+  </div>
+  
         <div className="video-container">
           <video 
             className="video-loop"

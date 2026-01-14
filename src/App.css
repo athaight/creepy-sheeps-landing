@@ -20,8 +20,27 @@
 h1 {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   color: var(--text-primary);
+}
+
+/* Subtitle with Catermelon */
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.catermelon-icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  object-fit: contain;
 }
 
 h3 {
@@ -91,9 +110,9 @@ p {
 /* Hero Image */
 .hero-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 80vw;
   height: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   border-radius: 8px;
 }
 
